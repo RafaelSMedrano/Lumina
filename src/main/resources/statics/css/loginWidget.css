@@ -1,0 +1,21 @@
+.login-widget {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 10px;
+    margin: 10px auto;
+}
+
+.login-widget input {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.login-widget button {
+    padding: 6px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
