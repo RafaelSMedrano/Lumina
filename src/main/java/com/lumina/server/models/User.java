@@ -1,36 +1,60 @@
 package com.lumina.server.models;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 public class User {
-    private String name;
-    private Area currentArea;
-    private Area bornArea;
+    private int  id;
+    private String userName;
+    private String passwordHash;
+    private String email;
+    private Timestamp createdAt;
     
 
-    public User(Area bornAreaSet){
-        this.setName("default");
-        this.setBornArea(bornAreaSet);
-        this.setCurrentArea(bornAreaSet);
-    }
-    public void setName(String nameSet){
-        this.name = nameSet;
-    }
-    public void setCurrentArea(Area areaSet){        
-        this.currentArea = areaSet;
-        currentArea.addPerson(this.getName());
-    }
-    public void setBornArea(Area bornAreaSet){
-        this.bornArea = bornAreaSet;
-    }
-    public String getName(){
-        return name;
-    }
-    public Area getCurrentArea(){
-        return currentArea;
-    }
-    public Area bornArea(){
-        return bornArea;
+    public User(String userName, String passwordHash, String email){
+        this.userName = userName;
+        this.passwordHash = passwordHash;
+        this.email = email;
+        this.createdAt = new Timestamp(System.currentTimeMillis());
     }
 
 
+    public int getId() {
+        return id;
+    }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
 }

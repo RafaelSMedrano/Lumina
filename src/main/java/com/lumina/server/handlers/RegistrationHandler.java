@@ -3,6 +3,7 @@ package com.lumina.server.handlers;
 import com.lumina.server.protocols.RegisterCommand;
 import com.lumina.server.protocols.Response;
 import com.lumina.server.ServerState;
+import com.lumina.server.services.UserService;
 
 public class RegistrationHandler {
     private ServerState state;
@@ -11,11 +12,13 @@ public class RegistrationHandler {
         this.state = state;
     }
 
-    public Response handleRegistration(RegisterCommand cmd) {
+    public static Response handleRegistration(RegisterCommand cmd) {
         Response res = new Response();
-        boolean success = state.registerUser(cmd.username, cmd.password);
+        UserService userService = new UserService();
+        boolean success = userService.registerUser(cmd);
         res.status = success ? true : false;
         res.message = success ? "Conta criada com sucesso." : "Usuário já existe.";
         return res;
     }
+
 }

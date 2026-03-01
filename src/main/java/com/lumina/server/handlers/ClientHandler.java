@@ -1,9 +1,8 @@
-package com.lumina.server;
+package com.lumina.server.handlers;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.lumina.server.handlers.AuthHandler;
-import com.lumina.server.handlers.RegistrationHandler;
+import com.lumina.server.ServerState;
 import com.lumina.server.protocols.Command;
 import com.lumina.server.protocols.LoginCommand;
 import com.lumina.server.protocols.RegisterCommand;
@@ -15,13 +14,13 @@ public class ClientHandler{
 
     private final Gson gson = new Gson();
     private final AuthHandler auth;
+
     private final Session session;
-    private final ServerState state;
 
     public ClientHandler(Session session, ServerState state) {
         this.session = session;
         this.auth          = new AuthHandler(state);
-        this.state = state;
+
     }
 
     public void handleMessage(String message) throws IOException {
@@ -38,9 +37,9 @@ public class ClientHandler{
                 switch (baseCmd.type) {
 
                     case "register" -> {
-                        RegistrationHandler registration = new RegistrationHandler(state);
+
                         RegisterCommand regCmd = gson.fromJson(message, RegisterCommand.class);
-                        Response resp = registration.handleRegistration(regCmd);
+                        Response resp = RegistrationHandler.handleRegistration(regCmd);
                         session.getBasicRemote().sendText(gson.toJson(resp));
 
                     }
