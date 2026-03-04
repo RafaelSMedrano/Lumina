@@ -13,7 +13,7 @@ public class Database {
 
         config.setJdbcUrl("jdbc:mysql://localhost:3306/lumina_db");
         config.setUsername("root");
-        config.setPassword("sua_senha");
+        config.setPassword("Glr147@@mysql");
 
         config.setMaximumPoolSize(10);    // Máximo de conexões simultâneas
         config.setMinimumIdle(2);         // Conexões mínimas ociosas

@@ -15,16 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginContainer = document.getElementById("login-widget-container");
     renderLoginWidget("login-widget-container");
 
-    const actionContainer = document.getElementById("lw-registration-btn");
+    const actionContainer = document.getElementById("lw-registration-btncontainer");
 
     actionContainer.innerHTML = `
-        <button id="register-btn">Register</button>
+        <div class="login-widget">
+            <button id="register-btn">Register</button>
+        </div>
     `;
 
     document.getElementById("register-btn").onclick = () => {
         loginContainer.innerHTML = "";
         actionContainer.innerHTML = "";
-        renderRegistrationWidget("lw-registration-btn");
+        renderRegistrationWidget("login-widget-container");
     };
 
 });

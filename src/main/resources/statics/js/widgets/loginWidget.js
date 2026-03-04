@@ -8,7 +8,6 @@ export function renderLoginWidget(containerId) {
             <input type="text" id="lw-username" placeholder="Username">
             <input type="password" id="lw-password" placeholder="Password">
             <button id="lw-login-btn">Login</button>
-            <button id="lw-registration-btn">Register</button>
             <div id="lw-response" class="response"></div>
         </div>
     `;

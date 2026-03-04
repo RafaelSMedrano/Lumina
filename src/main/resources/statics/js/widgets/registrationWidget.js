@@ -5,14 +5,14 @@ export function renderRegistrationWidget(containerId){
     const container = document.getElementById(containerId);
 
         container.innerHTML = `
-            <div class="registration-widget">
+            <div class="login-widget">
                 <input type="text" id="lw-username" placeholder="Username">
                 <input type="email" id="lw-email" placeholder="email">
                 <input type="password" id="lw-password" placeholder="Password">
                 <button id="lw-registration-btn">Register</button>
                 <div id="lw-response" class="response"></div>
             </div>
-        `;}
+        `;
 
 
     document.getElementById("lw-registration-btn").onclick = () => {
@@ -21,12 +21,12 @@ export function renderRegistrationWidget(containerId){
                     const email = document.getElementById("lw-email").value;
 
 
-                    if (!username || !password || email) {
+                    if (!username || !password || !email) {
                         document.getElementById("lw-response").innerText = "Preencha todos os campos.";
                         return;
                     }
 
-                    const registrationPayload = {
+                    const payload = {
                         type: "register",
                         username,
                         password,
@@ -35,3 +35,4 @@ export function renderRegistrationWidget(containerId){
 
                     sendMessage(payload);
                 }
+    }
