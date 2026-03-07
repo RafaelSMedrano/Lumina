@@ -40,7 +40,10 @@ public class ClientHandler{
 
                         RegisterCommand regCmd = gson.fromJson(message, RegisterCommand.class);
                         Response resp = RegistrationHandler.handleRegistration(regCmd);
+                        System.out.println("criou o protocolo de resposta");
+                        System.out.flush();
                         session.getBasicRemote().sendText(gson.toJson(resp));
+                        System.out.println("enviou a resposta JSON");
 
                     }
 

@@ -1,0 +1,46 @@
+<configuration>
+
+    <!-- Nome do arquivo de log -->
+    <property name="LOG_FILE" value="logs/lumina.log"/>
+
+    <!-- Appender para console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender para arquivo com rotação -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Um arquivo por dia -->
+            <fileNamePattern>logs/lumina.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- Mantém 30 dias -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log específico do Hikari -->
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+
+    <!-- Log do seu projeto -->
+    <logger name="com.lumina" level="DEBUG"/>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
