@@ -1,0 +1,4 @@
+2026-03-22 03:22:12 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-22 03:22:13 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7adcd1e8
+2026-03-22 03:22:13 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-22 03:57:38 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m55s156ms).

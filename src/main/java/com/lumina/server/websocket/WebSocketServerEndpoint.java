@@ -1,6 +1,5 @@
 package com.lumina.server.websocket;
-import com.lumina.server.ClientHandler;
-import com.lumina.server.ServerState;
+import com.lumina.server.handlers.ClientHandler;
 import com.lumina.server.ServerContext;
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
@@ -13,7 +12,11 @@ import java.io.IOException;
 @ServerEndpoint("/ws")
 public class WebSocketServerEndpoint {
 
-    private final ServerState serverState = ServerContext.getServerState();
+    private static ServerContext context;
+
+    public static void setContext(ServerContext ctx) {
+        context = ctx;
+    }
 
     @OnOpen
     public void onOpen(Session session) {
@@ -23,7 +26,7 @@ public class WebSocketServerEndpoint {
     @OnMessage
     public void onMessage(String message, Session session) throws IOException {
         System.out.println("Mensagem recebida: " + message);
-        ClientHandler handler = new ClientHandler(session, serverState);
+        ClientHandler handler = new ClientHandler(session, context);
 
         System.out.println("criou handler");
         handler.handleMessage(message);

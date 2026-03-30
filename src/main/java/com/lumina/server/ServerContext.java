@@ -1,23 +1,30 @@
 package com.lumina.server;
 
 import com.lumina.server.db.UserDAO;
+import com.lumina.server.services.AuthService;
 
 public class ServerContext {
-    private static ServerState serverState;
-    private UserDAO userDAO;
+    private static ServerState state;
+    private static AuthService authService;
 
-    public ServerContext(){
-        this.userDAO = new UserDAO();
+    public ServerContext(ServerState state){
+        this.state = state;
     }
 
     //A palavra-chave sychronized serve para evitar que duas ou mais threads executem ao
     // mesmo tempo o trecho de código.
     public static synchronized ServerState getServerState() {
-        if(serverState == null) {
-            serverState = new ServerState();
+        if(state == null) {
+            state = new ServerState();
         }
-        return serverState;
+        return state;
     }
-
-
+    public static synchronized AuthService getAuthService() {
+        System.out.println("passou o authService pelo context");
+        if(authService == null) {
+            UserDAO userDAO = new UserDAO();
+            authService = new AuthService(userDAO);
+        }
+        return authService;
+    }
 }

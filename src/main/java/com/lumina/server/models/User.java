@@ -57,4 +57,10 @@ public class User {
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+
+    public boolean checkPassword(String passwordEntry) {
+        return passwordEntry.equals(passwordHash);
+    }
+
+
 }

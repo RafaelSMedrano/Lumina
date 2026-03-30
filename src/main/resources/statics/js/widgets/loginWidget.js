@@ -1,4 +1,5 @@
 import { sendMessage, addMessageListener } from "../socket.js";
+import { renderHomeView } from "../views/homeView.js";
 
 export function renderLoginWidget(containerId) {
     const container = document.getElementById(containerId);
@@ -12,6 +13,28 @@ export function renderLoginWidget(containerId) {
         </div>
     `;
 
+
+    addMessageListener((msg) => {
+
+        if(msg.type === "login-response"){
+
+            const mainContainer = document.getElementById("main-container");
+            const responseDiv = document.getElementById("lw-response");
+
+            if(msg.status === "success"){
+
+                // 🔥 troca de tela
+                mainContainer.innerHTML = "";
+                renderHomeView("main-container", msg.username);
+
+            } else {
+                document.getElementById("lw-response").innerText = msg.message;
+            }
+
+        }
+
+    });
+
     document.getElementById("lw-login-btn").onclick = () => {
             const username = document.getElementById("lw-username").value;
             const password = document.getElementById("lw-password").value;
@@ -21,7 +44,7 @@ export function renderLoginWidget(containerId) {
                 return;
             }
 
-            const loginPayload = {
+            const payload = {
                 type: "login",
                 username,
                 password

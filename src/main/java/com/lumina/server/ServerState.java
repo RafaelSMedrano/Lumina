@@ -1,60 +1,26 @@
 package com.lumina.server;
 
-import com.lumina.server.models.LuminaChar;
+import com.lumina.server.sessions.UserSession;
+import jakarta.websocket.Session;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import javax.naming.AuthenticationException;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ServerState {
-        // Usuários cadastrados: username -> senha (isso deve ser substituído por algo mais seguro depois)
-    private Map<String, String> registeredUsers = new HashMap<>();
 
-    // Jogadores conectados: username -> ClientHandler
-    private Map<String, ClientHandler> connectedClients = new HashMap<>();
+    private final ConcurrentHashMap<String, UserSession> loggedUsers = new ConcurrentHashMap<>();
 
-    // Exemplo: Mapa de personagens (username -> objeto Character)
-    private Map<String, LuminaChar> characters = new HashMap<>();
+    public void addUser(String username, UserSession userSession) {
 
-    // Qualquer outro estado do jogo (mapa, salas, etc)
-    // private GameMap map;
-    // private List<Area> areas;
-
-    // Métodos de manipulação
-    public boolean registerUser(String username, String password) {
-        if (registeredUsers.containsKey(username)) return false;
-        registeredUsers.put(username, password);
-        System.out.println(registeredUsers);
-        return true;
+        loggedUsers.put(username, userSession);
+        System.out.println("adicionou ao state");
     }
 
-    public boolean login(String username, String password) {
-        System.out.println(registeredUsers);
-        System.out.println(registeredUsers.containsKey(username) &&
-                registeredUsers.get(username).equals(password));
-        return registeredUsers.containsKey(username) &&
-               registeredUsers.get(username).equals(password);
+    public void removeUser(String username) {
+        loggedUsers.remove(username);
     }
 
-    public void connectClient(String username, ClientHandler handler) {
-        connectedClients.put(username, handler);
+    public boolean isLogged(String username) {
+        return loggedUsers.containsKey(username);
     }
-
-    public void disconnectClient(String username) {
-        connectedClients.remove(username);
-    }
-
-    public boolean isUserConnected(String username) {
-        return connectedClients.containsKey(username);
-    }
-
-    public void addCharacter(String username, LuminaChar character) {
-        characters.put(username, character);
-    }
-
-    public LuminaChar getCharacter(String username) {
-        return characters.get(username);
-    }
-
-    // ... outros métodos conforme o crescimento do jogo
 }

@@ -12,21 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("entrou no eventlistener");
     initSocket(); // inicia a conexão
 
-    const loginContainer = document.getElementById("login-widget-container");
-    renderLoginWidget("login-widget-container");
+    const mainContainer = document.getElementById("main-container");
 
-    const actionContainer = document.getElementById("lw-registration-btncontainer");
+    mainContainer.innerHTML = `
+        <div id="login-widget"></div>
+        <div class="login-widget" id="action-area"></div>
+    `;
 
-    actionContainer.innerHTML = `
-        <div class="login-widget">
-            <button id="register-btn">Register</button>
-        </div>
+    renderLoginWidget("login-widget");
+    const actionArea = document.getElementById("action-area");
+
+    actionArea.innerHTML = `
+    <button id="register-btn">Register</button>
     `;
 
     document.getElementById("register-btn").onclick = () => {
-        loginContainer.innerHTML = "";
-        actionContainer.innerHTML = "";
-        renderRegistrationWidget("login-widget-container");
+        mainContainer.innerHTML = "";
+        renderRegistrationWidget("main-container");
     };
 
 });

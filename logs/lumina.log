@@ -1,7 +1,6 @@
-2026-03-07 00:20:42 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-03-07 00:20:43 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2043c43f
-2026-03-07 00:20:43 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-03-07 00:24:05 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-03-07 00:24:05 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@468553ba
-2026-03-07 00:24:05 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-03-07 00:45:05 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s848ms), soft-evicting connections from pool.
+2026-03-23 19:53:14 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-23 19:53:14 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30320e92
+2026-03-23 19:53:14 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-23 23:07:46 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m80ms).
+2026-03-23 23:08:15 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s106ms), soft-evicting connections from pool.
+2026-03-23 23:42:13 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m27s851ms).
