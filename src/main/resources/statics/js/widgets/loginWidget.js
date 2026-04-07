@@ -16,7 +16,7 @@ export function renderLoginWidget(containerId) {
 
     addMessageListener((msg) => {
 
-        if(msg.type === "login-response"){
+        if(msg.type === "login"){
 
             const mainContainer = document.getElementById("main-container");
             const responseDiv = document.getElementById("lw-response");
@@ -25,7 +25,9 @@ export function renderLoginWidget(containerId) {
 
                 // 🔥 troca de tela
                 mainContainer.innerHTML = "";
-                renderHomeView("main-container", msg.username);
+                const username = msg.data.username;
+                console.log(username);
+                renderHomeView("main-container", username);
 
             } else {
                 document.getElementById("lw-response").innerText = msg.message;
@@ -46,8 +48,10 @@ export function renderLoginWidget(containerId) {
 
             const payload = {
                 type: "login",
-                username,
-                password
+                data: {
+                    username,
+                    password
+                }
             };
             sendMessage(payload);
 

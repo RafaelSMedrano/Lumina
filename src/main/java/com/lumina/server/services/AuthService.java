@@ -15,7 +15,7 @@ public class AuthService {
         this.userDAO = userDAO;
     }
 
-    public void login(String username, String password) throws AuthenticationException {
+    public void auth(String username, String password) throws AuthenticationException {
         try {
             System.out.println("Entrou na authenticacao.");
             User user = userDAO.getByUsername(username)

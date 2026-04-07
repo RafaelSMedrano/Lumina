@@ -7,7 +7,6 @@ public class LoginCommand extends Command {
     public LoginCommand(String username, String password){
         this.password = password;
         this.username = username;
-        this.type = "login";
     }
 
 

@@ -5,15 +5,15 @@ import jakarta.websocket.Session;
 public class UserSession {
 
     private final String username;
-    private final Session websocketSession;
+    private final Session session;
 
     private long loginTime;
     private String currentRoom;
     private boolean authenticated;
 
-    public UserSession(String username, Session websocketSession, boolean authenticated) {
+    public UserSession(String username, Session session, boolean authenticated) {
         this.username = username;
-        this.websocketSession = websocketSession;
+        this.session = session;
         this.loginTime = System.currentTimeMillis();
         this.authenticated = authenticated;
     }
@@ -27,7 +27,7 @@ public class UserSession {
     }
 
     public Session getWebsocketSession() {
-        return websocketSession;
+        return session;
     }
 
     public long getLoginTime() {

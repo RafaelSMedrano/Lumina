@@ -18,7 +18,7 @@ export function renderRegistrationWidget(containerId){
 // 👇 LISTENER DO SERVIDOR
     addMessageListener((msg) => {
         console.log("recebeu msg");
-        if (msg.type === "registration-response") {
+        if (msg.type === "registration") {
 
 
             const responseDiv = document.getElementById("lw-response");
@@ -50,10 +50,12 @@ export function renderRegistrationWidget(containerId){
                     }
 
                     const payload = {
-                        type: "register",
-                        username,
-                        password,
-                        email,
+                        type: "registration",
+                        data: {
+                            username,
+                            password,
+                            email
+                        }
                     };
 
                     sendMessage(payload);

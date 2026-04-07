@@ -1,0 +1,6 @@
+2026-04-02 23:44:13 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 23:44:13 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30320e92
+2026-04-02 23:44:13 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 23:55:08 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 23:55:09 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@11126299
+2026-04-02 23:55:09 [Grizzly-worker(2)] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
